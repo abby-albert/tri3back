@@ -45,3 +45,12 @@ dt.fit(X_train, y_train)
 y_pred = dt.predict(X_test)
 mse = mean_squared_error(y_test, y_pred)
 print('Mean Squared Error:', mse)
+
+# Fetch: In the frontend JavaScript code, fetch() is used to send a POST request to the /predict_probability
+# endpoint of the Flask server. This request includes data about the subject, attention, and solutions input
+# provided by the user. The server processes this data and returns a response containing the calculated probability.
+
+# Endpoint (/predict_probability): This Flask endpoint listens for POST requests. When it receives a POST request, 
+# it extracts the data from the request's JSON payload. It then uses this data to calculate the probability of getting 
+# a score above 9.0/10.0. This probability is calculated based on the dummy data stored in attention_data. Finally, 
+# it returns the calculated probability as a JSON response.
