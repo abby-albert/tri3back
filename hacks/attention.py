@@ -38,3 +38,10 @@ def predict_probability():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+dt.fit(X_train, y_train)
+
+# Test the model
+y_pred = dt.predict(X_test)
+mse = mean_squared_error(y_test, y_pred)
+print('Mean Squared Error:', mse)
