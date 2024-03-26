@@ -18,7 +18,7 @@ from api.attention import attention_api
 # database migrations
 from model.users import initUsers
 from model.players import initPlayers
-from model.attentions import initAttentions 
+from model.attentions import initAttention 
 # setup App pages
 from projects.projects import app_projects # Blueprint directory import projects definition
 
@@ -62,7 +62,7 @@ custom_cli = AppGroup('custom', help='Custom commands')
 def generate_data():
     initUsers()
     initPlayers()
-    initAttentions()
+    initAttention()
 
 # Register the custom command group with the Flask application
 app.cli.add_command(custom_cli)
