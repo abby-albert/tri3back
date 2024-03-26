@@ -2,8 +2,10 @@
 from flask import Blueprint, request, jsonify
 from flask_restful import Api, Resource # used for REST API building
 
-# Import the TitanicModel class from the model file
-# from model.titanic import TitanicModel
+# Import the AttentionModel class from the model file
+from model.titanic import TitanicModel
+
+from model.titanic import AttentionModel
 
 attention_api = Blueprint('attention_api', __name__,
                    url_prefix='/api/attention')
@@ -24,7 +26,7 @@ class AttentionAPI:
             # Get the passenger data from the request
             score = request.get_json()
 
-            # Get the singleton instance of the TitanicModel
+            # Get the singleton instance of the AitanicModel
             attentionModel = AttentionModel.get_instance()
             # Predict the survival probability of the passenger
             response = attentionModel.predict(score)
