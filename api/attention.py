@@ -3,9 +3,8 @@ from flask import Blueprint, request, jsonify
 from flask_restful import Api, Resource # used for REST API building
 
 # Import the AttentionModel class from the model file
-from model.titanic import TitanicModel
 
-from model.attention import AttentionModel
+from model.attentions import AttentionModel
 
 attention_api = Blueprint('attention_api', __name__,
                    url_prefix='/api/attention')
