@@ -5,7 +5,7 @@ from flask_restful import Api, Resource # used for REST API building
 # Import the AttentionModel class from the model file
 from model.titanic import TitanicModel
 
-from model.titanic import AttentionModel
+from model.attention import AttentionModel
 
 attention_api = Blueprint('attention_api', __name__,
                    url_prefix='/api/attention')
