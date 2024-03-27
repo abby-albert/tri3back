@@ -33,7 +33,6 @@ class AttentionModel:
         # load the attention dataset
         self.attention_data = pd.read_csv('attention.csv')
 
-    # clean the attention dataset, prepare it for training
     def _clean(self):
         pass  # No cleaning needed for this dataset
 
