@@ -1,6 +1,7 @@
 # Import the required libraries for the AttentionModel class
 import pandas as pd
 import numpy as np
+import seaborn as sns
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
@@ -8,6 +9,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
 from flask import Blueprint, request, jsonify, current_app, Response
 from flask_restful import Api, Resource # unsed for REST API building
+
+attention_data = sns.load_dataset('attention')
 
 # Change variable name and API name and prefix
 attention_api = Blueprint('attention_api', __name__,
@@ -34,7 +37,12 @@ class AttentionModel:
         self.attention_data = pd.read_csv('attention.csv')
 
     def _clean(self):
-        pass  # No cleaning needed for this dataset
+        ad = attention_data
+        ad.drop(['subject', 'attention', 'solutions', 'score'], axis=1, inplace=True)
+        ad.dropna(inplace=True)
+        ad['attention'] = ad['attention'].apply(lambda x: 1 if x == 'focused' else 0)
+        print(ad.columns)
+
 
     # train the attention model, using linear regression as key model, and decision tree to show feature importance
     def _train(self):
